@@ -1,0 +1,141 @@
+import java.util.Scanner;
+import javax.sound.midi.SysexMessage;
+
+
+public class TwoSeven{
+        
+    private static volatile long sink = 0;
+
+
+    public static void main(String args[]){
+        
+
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter N: ");
+        int userInput = scanner.nextInt();
+
+        //function 1:
+        long function1timeStart = System.nanoTime();
+        sink += function1(userInput);
+        long function1timeEnd = System.nanoTime();
+        long totalTimeFunction1 = function1timeEnd - function1timeStart;
+        double seconds1 = totalTimeFunction1 / 1_000_000_000.00;
+
+        System.out.println("Function 1 time: " + seconds1);
+
+        //function 2:
+        long function2timeStart = System.nanoTime();
+        sink += function2(userInput);
+        long function2timeEnd = System.nanoTime();
+        long totalTimeFunction2 = function2timeEnd - function2timeStart;
+        double seconds2 = totalTimeFunction2 / 1_000_000_000.00;
+
+        System.out.println("Function 2 time: " + seconds2);
+
+
+        //function 3:
+        long function3timeStart = System.nanoTime();
+        sink += function3(userInput);
+        long function3timeEnd = System.nanoTime();
+        long totalTimeFunction3 = function3timeEnd - function3timeStart;
+        double seconds3 = totalTimeFunction3 / 1_000_000_000.00;
+
+        System.out.println("Function 3 time: " + seconds3);
+
+        //function 4:
+        long function4timeStart = System.nanoTime();
+        sink += function4(userInput);
+        long function4timeEnd = System.nanoTime();
+        long totalTimeFunction4 = function4timeEnd - function4timeStart;
+        double seconds4 = totalTimeFunction4 / 1_000_000_000.00;
+
+        System.out.println("Function 4 time: " + seconds4);        
+
+
+        //function 5:
+        long function5timeStart = System.nanoTime();
+        sink += function5(userInput);
+        long function5timeEnd = System.nanoTime();
+        long totalTimeFunction5 = function5timeEnd - function5timeStart;
+        double seconds5 = totalTimeFunction5 / 1_000_000_000.00;
+
+        System.out.println("Function 5 time: " + seconds5); 
+ 
+        
+
+
+        //function 6:
+        long function6timeStart = System.nanoTime();
+        sink += function6(userInput);
+        long function6timeEnd = System.nanoTime();
+        long totalTimeFunction6 = function6timeEnd - function6timeStart;
+        double seconds6 = totalTimeFunction6 / 1_000_000_000.00;
+
+        System.out.println("Function 6 time: " + seconds6);         
+    }
+
+    public static int function1(int n){
+        int sum = 0;
+        for (int i = 0; i<n; i++){
+            sum++;
+        }
+        return sum;
+        
+    }
+
+    public static int function2(int n){
+        int sum = 0;
+        for( int i = 0; i < n; i++ ){
+            for( int j = 0; j < n; j++ ){
+                sum++;
+            }
+        }
+        return sum;
+
+    }
+        public static int function3(int n){
+        int sum = 0;
+        for( int i = 0; i < n; i++ ){
+            for( int j = 0; j < n * n; j++ ){
+                sum++;
+            }
+        }
+        return sum;
+    }
+        public static int function4(int n){
+        int sum = 0;
+        for( int i = 0; i < n; i++ ){
+            for( int j = 0; j < i; j++ ){
+                sum++;
+            }
+        }
+        return sum;
+    }
+        public static int function5(int n){
+        int sum = 0;
+        for( int i = 0; i < n; i++ ){
+            for( int j = 0; j < i*i; j++ ){
+                for(int k = 0; k < j; k++){
+                    sum++;
+                }
+            }
+        }
+        return sum;
+    }
+
+        public static int function6(int n){
+        int sum = 0;
+        for( int i = 1; i < n; i++ ){
+            for( int j = 1; j < i*i; j++ ){
+                if(j % i == 0){
+                    for(int k = 0; k < j; k++){
+                        sum++;
+                    }
+                }
+            }
+        }
+        return sum;
+    }
+    
+}
